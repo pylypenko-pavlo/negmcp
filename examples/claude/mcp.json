@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "negmcp": {
+      "type": "stdio",
+      "command": "/ABSOLUTE/PATH/TO/negmcp/.venv/bin/negmcp",
+      "args": ["serve"]
+    }
+  }
+}

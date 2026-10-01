@@ -1,0 +1,27 @@
+# External reference — NOT redistributed. Reproduce with: bash vendor/setup.sh
+vendor/NegPy/
+
+# Your data never belongs in the repo: looks, recipes, render baselines, scans
+/look/
+/rolls/
+*_recipe.json
+*_recipe.prev.json
+*_overrides.json
+tests/fixtures/baseline_*.json
+*.ARW
+*.arw
+*.DNG
+*.dng
+*.negpy
+edits.db
+
+# Scratch / generated
+__pycache__/
+*.pyc
+*.egg-info/
+.venv/
+build/
+dist/
+.pytest_cache/
+.ruff_cache/
+.DS_Store

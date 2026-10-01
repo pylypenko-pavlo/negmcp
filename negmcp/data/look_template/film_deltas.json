@@ -1,0 +1,5 @@
+{
+  "_note": "Per-stock corrections over base_template.json, keyed by NegPy crosstalk profile (the file stem, e.g. kodak_gold_200; NegPy's bundled profiles live in vendor/NegPy/crosstalk/). `negmcp new` applies the entry matching the roll's crosstalk_profile on top of the base. Format: \"<profile>\": {<flat NegPy key>: value, ...}; {} = the base fits that stock as-is. Reserved entries: \"_transparency\" = applied to slide rolls (info.txt `process_mode: Transparency`); \"_push\" = {\"<profile>\" | \"_default\": {...}} applied on top when info.txt has a `push:` line (not `push: none`). Keys starting with `_` are notes. Add a stock here only after its look is validated on a real roll.",
+  "_example": {"kodak_gold_200": {"color_separation": 1.1, "wb_magenta": 0.02}},
+  "_push": {}
+}

@@ -1,0 +1,26 @@
+# negmcp configuration — copy to ~/.config/negmcp/config.toml (or $XDG_CONFIG_HOME/negmcp/) and edit.
+# Precedence: CLI (-c key=value) > env NEGMCP_<KEY> > this file > built-in defaults.
+# All keys are optional; the values below are the defaults. Details: docs/config.md.
+
+# --- engine ---------------------------------------------------------------------------
+# negpy_src         = "<repo>/vendor/NegPy"            # pinned NegPy checkout (vendor/NEGPY_PIN)
+
+# --- your look and recipes (created by `negmcp init`; keep them out of the repo) --------
+# look_dir          = "~/.local/share/negmcp/look"     # base_template.json, film_deltas.json, house_look.json
+# rolls_dir         = "~/.local/share/negmcp/rolls"    # <roll>_recipe.json (one per roll), closed/, <roll>_overrides.json
+# house_look        = "<look_dir>/house_look.json"
+
+# --- your photos -------------------------------------------------------------------------
+# neg_root          = "~/negmcp/neg"                   # <neg_root>/<roll>/*.ARW + info.txt
+# refs_dir          = "~/negmcp/refs"                  # reference images of the look you want (JPEG/PNG)
+# review_root       = "~/negmcp/review"                # <review_root>/<roll>/ = batch(recipe), regenerated
+# pos_root          = "~/negmcp/pos"                   # <pos_root>/<roll>/ = approved finals (optional, `qa` APPROVED)
+# edits_db          = "~/Documents/NegPy/edits.db"     # NegPy desktop app database (`negmcp replay`, read-only)
+
+# --- caches and sizes ----------------------------------------------------------------------
+# cache_dir         = "~/.cache/negmcp"
+# work_dir          = "<cache_dir>/work"               # MCP renders, contact sheets, corridor output
+# iter_long_edge    = 2200                             # iteration size: long edge of the OUTPUT crop
+# preview_long_edge = 1024                             # MCP image payloads / roll contact cells
+# workers           = 6                                # default: cpu_count - 2
+# log_level         = "INFO"

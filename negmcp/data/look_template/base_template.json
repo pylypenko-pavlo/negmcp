@@ -1,0 +1,11 @@
+{
+  "_howto": "Starter recipe for every roll, whatever the film stock. `negmcp new <roll>` copies `base` into <rolls_dir>/<roll>_recipe.json, sets crosstalk_profile from the roll's info.txt (`negpy_crosstalk_profile:`) and layers the stock's entry from film_deltas.json on top. This template is NegPy's own defaults plus the two fields negmcp needs: crosstalk_profile (filled per roll) and output_working_space (required by negmcp: false = colour-managed export in NegPy's export space, true = the working-space buffer written as-is). auto_exposure / auto_normalize_contrast equal NegPy's defaults and are kept explicit: every frame is metered on its own. Put your universal base here once (the values that suit your scans on any stock); do not re-tune it per roll — per-stock corrections go to film_deltas.json, per-frame fixes go through `negmcp fix`. Note: a crosstalk profile only acts with color_separation > 1.0 (NegPy crosstalk_strength = color_separation - 1).",
+  "base": {
+    "process_mode": "C41",
+    "crosstalk_profile": "REPLACE_ME_FROM_INFO_TXT",
+    "auto_exposure": true,
+    "auto_normalize_contrast": true,
+    "output_working_space": false
+  },
+  "per_frame_overrides": {}
+}

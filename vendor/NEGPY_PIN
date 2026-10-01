@@ -1,0 +1,5 @@
+# NegPy pin: the single source of truth. Shell-sourceable (vendor/setup.sh does `. NEGPY_PIN`)
+# and parsed by negmcp/_negpy.py. Move the pin here only, then run the parity check
+# (docs/negpy-compat.md) and refresh the local render baseline (tests/fixtures/make_baseline.py).
+NEGPY_COMMIT=a2bf172
+NEGPY_VERSION=0.62.0

@@ -1,0 +1,77 @@
+[project]
+name = "negmcp"
+version = "0.2.0"
+description = "Batch / QA / MCP tooling around the NegPy film-negative renderer"
+readme = "README.md"
+license = "GPL-3.0-only"
+license-files = ["LICENSE"]
+requires-python = ">=3.13"
+authors = [{ name = "Pavlo Pylypenko" }]
+keywords = ["film", "negative", "scanning", "negpy", "mcp", "photography"]
+classifiers = [
+    "Programming Language :: Python :: 3.13",
+    "Operating System :: MacOS",
+    "Operating System :: POSIX :: Linux",
+    "Topic :: Multimedia :: Graphics",
+]
+# Ranges, not exact pins: they must contain vendor/NegPy's own pins (vendor/NegPy/pyproject.toml
+# at the pin in vendor/NEGPY_PIN) AND the versions a local render baseline was captured on
+# (tests/fixtures/make_baseline.py; developed on numpy 2.4.6, numba 0.66.0, opencv 5.0.0.93,
+# pillow 12.3.0). Installing this project must never silently move the renderer's numeric stack.
+dependencies = [
+    "numpy>=2.4.4,<2.5",
+    "numba>=0.65.1,<0.67",
+    "rawpy==0.27.0",
+    "pillow>=12.2.0,<13",
+    "opencv-python-headless>=4.13.0.92,<6",
+    "scipy>=1.15",
+    "piexif==1.1.3",
+    "exifread>=3.5,<4",
+    "tifffile==2026.6.1",
+    "imagecodecs>=2026.6.6",
+    "imageio>=2.37.3,<3",
+    # imported by NegPy's ImageProcessor at module load (the GPU path stays off: use_gpu=False)
+    "wgpu>=0.31.1,<0.32",
+    "mcp>=1.28,<2",
+]
+
+[project.urls]
+Homepage = "https://github.com/pylypenko-smplt/negmcp"
+Issues = "https://github.com/pylypenko-smplt/negmcp/issues"
+NegPy = "https://github.com/marcinz606/NegPy"
+
+[project.scripts]
+negmcp = "negmcp.cli:main"
+
+[project.optional-dependencies]
+dev = [
+    "pytest==9.0.2",
+    "ruff==0.14.10",
+]
+
+[build-system]
+requires = ["setuptools>=80"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["negmcp*"]
+
+[tool.setuptools.package-data]
+negmcp = ["data/look_template/*.json"]
+
+[tool.ruff]
+line-length = 120
+target-version = "py313"
+extend-exclude = ["vendor"]
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "UP"]
+ignore = ["E501"]  # the formatter owns line length; long comments/strings are left as written
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+markers = ["render: renders a raw through NegPy (synthetic DNG, or NEGMCP_TEST_ARW when set)"]
+
+[tool.ruff.lint.per-file-ignores]
+"negmcp/render.py" = ["E402"]  # NegPy imports must follow _negpy.bootstrap()
+"negmcp/autocrop.py" = ["E402"]

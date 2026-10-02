@@ -29,7 +29,7 @@ rendered.
 Requirements: Python 3.13 or newer, git, [uv](https://docs.astral.sh/uv/).
 
 ```bash
-git clone https://github.com/pylypenko-smplt/negmcp negmcp && cd negmcp
+git clone https://github.com/pylypenko-pavlo/negmcp negmcp && cd negmcp
 bash vendor/setup.sh
 uv venv --python 3.13 .venv
 uv pip install --python .venv/bin/python -e '.[dev]'

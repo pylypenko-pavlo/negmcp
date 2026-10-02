@@ -36,8 +36,8 @@ dependencies = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/pylypenko-smplt/negmcp"
-Issues = "https://github.com/pylypenko-smplt/negmcp/issues"
+Homepage = "https://github.com/pylypenko-pavlo/negmcp"
+Issues = "https://github.com/pylypenko-pavlo/negmcp/issues"
 NegPy = "https://github.com/marcinz606/NegPy"
 
 [project.scripts]
